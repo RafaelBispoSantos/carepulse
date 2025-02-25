@@ -7,9 +7,11 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300","400", "500", "600", "700"],
   variable: "--font-sans",
 });
+
+
 
 export const metadata: Metadata = {
   title: "CarePulse",
@@ -22,16 +24,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" >
       <body
-        className={cn(
-          "min-h-screen bg-dark-300 font-sans antialiased",
-          fontSans.variable
-        )}
+        className={cn('min-h-screen bg-dark-300 font-sans antialiased', fontSans.variable)} 
       >
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          {children}
-        </ThemeProvider>
+        <ThemeProvider
+            attribute='class'
+            defaultTheme='dark'
+       
+          >
+            {children}
+          </ThemeProvider>
       </body>
     </html>
   );
