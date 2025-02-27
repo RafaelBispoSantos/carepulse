@@ -24,7 +24,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "react-phone-number-input/style.css";
 
 import SubmitButton from "../SubmitButton";
-import CustomFormField from "./CustomFormField";
+import CustomFormField from "../CustomFormField";
 import { FormFieldType } from "./PatientForm";
 import FileUploader from "../FileUploader";
 
