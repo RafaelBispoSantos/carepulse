@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 
 declare type SearchParamProps = {
-    params: { [key: string]: string };
-    searchParams: { [key: string]: string | string[] | undefined };
-  };
-  
+  params: Record<string, string>; // `params` conterá chaves e valores das rotas dinâmicas
+  searchParams: Record<string, string | undefined>; // `searchParams` conterá chaves e valores da string de consulta
+};
   declare type Gender = "male" | "female" | "other";
   declare type Status = "pending" | "scheduled" | "cancelled";
   
