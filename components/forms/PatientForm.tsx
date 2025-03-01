@@ -62,15 +62,15 @@ const PatientForm = () => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
         <section className="mb-12 space-y-4">
-          <h1 className="header">Hi there 👋🏽</h1>
-          <p className="text-dark-700">Schedule your first appointment.</p>
+          <h1 className="header">Seja bem-vindo! 👋🏽</h1>
+          <p className="text-dark-700">Agende sua primeira consulta e cuide da sua saúde.</p>
         </section>
         <CustomFornField
           fieldType={FormFieldType.INPUT}
           control={form.control}
           name="name"
-          label="Full Name"
-          placeholder="John Doe"
+          label="Nome Completo"
+          placeholder="João da Silva"
           iconSrc="/assets/icons/user.svg"
           iconAlt="user"
         />
@@ -80,7 +80,7 @@ const PatientForm = () => {
           control={form.control}
           name="email"
           label="Email"
-          placeholder="Rafael@gmail.com"
+          placeholder="joaodasilva@gmail.com"
           iconSrc="/assets/icons/email.svg"
           iconAlt="email"
         />
@@ -88,10 +88,10 @@ const PatientForm = () => {
           fieldType={FormFieldType.PHONE_INPUT}
           control={form.control}
           name="phone"
-          label="Phone number"
-          placeholder="(55)  1195882-9321"
+          label="Telefone"
+          placeholder="(55)"
         />
-        <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
+        <SubmitButton isLoading={isLoading}>Agendar Agora</SubmitButton>
       </form>
     </Form>
   );

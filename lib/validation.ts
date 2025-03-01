@@ -31,8 +31,19 @@ export const PatientFormValidation = z.object({
     .max(50, "Name must be at most 50 characters"),
   email: z.string().email("Invalid email address"),
   phone: z
-    .string()
-    .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
+  .string()
+  .refine((phone) => {
+    // Verifica se começa com +55 e tem o comprimento correto
+    if (!phone?.startsWith("+55")) return false;
+    
+    // Remove o código do país (+55) para validação
+    const number = phone.slice(3);
+    
+    // Valida números fixos (10 dígitos) e móveis (11 dígitos)
+    return /^([1-9]{2})?([2-9]\d{7}|9\d{8})$/.test(number);
+  }, {
+    message: "Invalid Brazilian number. Use format: +55 (XX) XXXX-XXXX or +55 (XX) 9XXXX-XXXX"
+  }),
   birthDate: z.coerce.date(),
   gender: z.enum(["male", "female", "other"]),
   address: z

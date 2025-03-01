@@ -37,7 +37,7 @@ const FileUploader = ({ files, onChange }: FileUploaderProps) => {
           />
           <div className="file-upload_label">
             <p className="text-14-regular">
-              <span className="text-green-500">Click to upload</span>
+              <span className="text-green-500">Clique para carregar</span>
             </p>
             <p>SGV, PNG, JPG or Gif (max 800x400)</p>
           </div>

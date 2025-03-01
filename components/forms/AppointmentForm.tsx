@@ -39,7 +39,9 @@ const AppointmentForm = ({
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof AppointmentFormValidation>) => {
+  const onSubmit = async (
+    values: z.infer<typeof AppointmentFormValidation>
+  ) => {
     setIsLoading(true);
     let status: "scheduled" | "cancelled" | "pending";
 
@@ -74,7 +76,7 @@ const AppointmentForm = ({
           router.push(
             `/patients/${userId}/new-appointment/success?appointmentId=${appointment.$id}`
           );
-          return; 
+          return;
         }
       }
       router.push(`/appointments`);
@@ -88,7 +90,7 @@ const AppointmentForm = ({
 
   const buttonLabel =
     type === "create"
-      ? "Request Appointment"
+      ? "Solicitar agendamento"
       : type === "cancel"
       ? "Cancel Appointment"
       : "Schedule Appointment";
@@ -97,9 +99,9 @@ const AppointmentForm = ({
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
         <section className="mb-12 space-y-4">
-          <h1 className="header">New Appointment</h1>
+          <h1 className="header">Novo Agendamento</h1>
           <p className="text-dark-700">
-            {type === "create" && "Request a new appointment in 10 seconds."}
+            {type === "create" && "Solicite um novo agendamento em 10 segundos."}
             {type === "schedule" && "Schedule an appointment with a doctor."}
             {type === "cancel" && "Cancel an existing appointment."}
           </p>
@@ -111,8 +113,8 @@ const AppointmentForm = ({
               fieldType={FormFieldType.SELECT}
               control={form.control}
               name="primaryPhysician"
-              label="Doctor"
-              placeholder="Select a doctor"
+              label="Médico(a)" // Tradução de "Doctor"
+              placeholder="Selecione um(a) médico(a)" // Tradução de "Select a doctor"
             >
               {Doctors.map((doctor, i) => (
                 <SelectItem key={doctor.name + i} value={doctor.name}>
@@ -134,7 +136,7 @@ const AppointmentForm = ({
               fieldType={FormFieldType.DATE_PICKER}
               control={form.control}
               name="schedule"
-              label="Expected appointment date"
+              label="Data prevista para a consulta"
               showTimeSelect
               dateFormat="MM/dd/yyyy h:mm aa"
             />
@@ -144,15 +146,15 @@ const AppointmentForm = ({
                 fieldType={FormFieldType.TEXTAREA}
                 control={form.control}
                 name="reason"
-                label="Reason for the appointment"
-                placeholder="Enter reason for the appointment"
+                label="Motivo da consulta"
+                placeholder="Digite o motivo da consulta"
               />
               <CustomFormField
                 fieldType={FormFieldType.TEXTAREA}
                 control={form.control}
                 name="note"
-                label="Notes"
-                placeholder="Enter notes"
+                label="Observações"
+                placeholder="Digite suas observações"
               />
             </div>
           </>
@@ -163,8 +165,8 @@ const AppointmentForm = ({
             fieldType={FormFieldType.TEXTAREA}
             control={form.control}
             name="reason"
-            label="Reason for canceling the appointment"
-            placeholder="Enter reason for canceling the appointment"
+            label="Motivo do cancelamento da consulta" 
+            placeholder="Digite o motivo do cancelamento" 
           />
         )}
 

@@ -78,7 +78,7 @@ const NewAppointment = ({ params }: { params: Promise<{ userId: string }> }) => 
           />
 
           <p className="copyright mt-10 py-12">© 2025 CarePulse</p>
-          <Link href="/?admin=true" className="text-green-500"> Admin</Link>
+        
         </div>
       </section>
 
